@@ -1,0 +1,32 @@
+tr{
+    padding: 10px;
+}
+td{
+    padding: 10px;
+    border: 1px solid var(--gr5);
+    min-width: 100px;
+}
+
+.form_txt{
+    padding: 5px;
+    min-width: 120px;
+    width: 120px;
+    height: 34px;
+    min-height: 34px;
+}
+
+.table4{
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+table{
+    border: 1px solid var(--gr);
+}
+
+@media(max-width:500px){
+    .table4{
+        overflow-y: auto;
+        display: block;
+    }
+}
