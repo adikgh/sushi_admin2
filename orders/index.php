@@ -2,7 +2,7 @@
 
 	// 
 	if (!$user_id) header('location: /');
-
+	if ($user_right['positions_id'] == 3) header('location: /kassa/');
 
 
    	$type = @$_GET['type'];

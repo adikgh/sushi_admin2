@@ -2,8 +2,7 @@
 
    // 
 //    if ($user_id) header('location: /dashboard/');
-	if ($user_right['positions_id'] == 3) header('location: /kassa/');
-   	elseif ($user_id) header('location: /orders/');
+	if ($user_id) header('location: /orders/');
    // header('location: /cashbox/');
    // header('location: /dev.php');
 
