@@ -106,6 +106,10 @@
 					<i class="far fa-landmark"></i>
 					<span>Касса</span>
 				</a>
+				<a class="pmenu_i <?=($menu_name=='acc'?'pmenu_i_act':'')?>" href="/acc/">
+					<i class="far fa-user"></i>
+					<span>Аккаунт</span>
+				</a>
 			<? else: ?>
 				<a class="pmenu_i txt_c <?=($menu_name=='orders'?'pmenu_i_act':'')?>" href="/orders/">
 					<i class="far fa-list"></i>
