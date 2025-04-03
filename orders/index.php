@@ -17,18 +17,18 @@
 	if (@$_GET['status'] && @$_GET['staff']) {
 		$status = $_GET['status'];
 		$staff = $_GET['staff'];
-		if ($staff == 'off') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status' and сourier_id is null and branch_id = '$branch' order by number desc");
-		elseif ($staff == 'soboi') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status' and order_type = 2 and branch_id = '$branch' order by number desc");
-		else $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status' and сourier_id  = '$staff'  and branch_id = '$branch' order by number desc");
+		if ($staff == 'off') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status' and сourier_id is null and company_id = '$company' order by number desc");
+		elseif ($staff == 'soboi') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status' and order_type = 2 and company_id = '$company' order by number desc");
+		else $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status' and сourier_id  = '$staff'  and company_id = '$company' order by number desc");
 	} elseif (@$_GET['status']) {
 		$status = $_GET['status'];
-		$orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status'  and branch_id = '$branch' order by number desc");
+		$orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_status = '$status'  and company_id = '$company' order by number desc");
 	} elseif (@$_GET['staff']) {
 		$staff = $_GET['staff'];
-		if ($staff == 'off') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_type = 1 and сourier_id is null and branch_id = '$branch' order by number desc");
-		elseif ($staff == 'soboi') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_type = 2 and branch_id = '$branch' order by number desc");
-		else $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and сourier_id  = '$staff'  and branch_id = '$branch' order by number desc");
-	} else $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate'  and branch_id = '$branch' order by number desc");
+		if ($staff == 'off') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_type = 1 and сourier_id is null and company_id = '$company' order by number desc");
+		elseif ($staff == 'soboi') $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and order_type = 2 and company_id = '$company' order by number desc");
+		else $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and сourier_id  = '$staff'  and company_id = '$company' order by number desc");
+	} else $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate'  and company_id = '$company' order by number desc");
 
 
 	$allorder['total'] = 0;
@@ -54,7 +54,7 @@
 				<? if ($orders != ''): ?>
 					<? if (mysqli_num_rows($orders) != 0): ?>
 						<? while ($buy_d = mysqli_fetch_assoc($orders)): ?>
-							<? // if ($buy_d['branch_id']) $branch_d = fun::branch($buy_d['branch_id']); ?>
+							<? // if ($buy_d['company_id']) $company_d = fun::company($buy_d['company_id']); ?>
 							<? $order_sts = fun::order_sts($buy_d['order_status']); ?>
 
 							<div class="uc_ui">
@@ -166,11 +166,11 @@
 
 			<div class="">
 				<div class="uc_ui uc_ui69">
-					<!-- <? if (!$user_right['branch_id']): ?>
+					<!-- <? if (!$user_right['company_id']): ?>
 						<div class="uc_uin_other">
-							<select name="status" class="on_sort_branch" data-order-id="<?=$buy_d['id']?>" >
-								<option data-id="" value="" data-val="1" <?=($branch == 1?'selected':'')?>>Банзай</option>
-								<option data-id="" value="" data-val="2" <?=($branch == 2?'selected':'')?>>Мастер</option>
+							<select name="status" class="on_sort_company" data-order-id="<?=$buy_d['id']?>" >
+								<option data-id="" value="" data-val="1" <?=($company == 1?'selected':'')?>>Банзай</option>
+								<option data-id="" value="" data-val="2" <?=($company == 2?'selected':'')?>>Мастер</option>
 							</select>
 						</div>
 					<? endif ?> -->

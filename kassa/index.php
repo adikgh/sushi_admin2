@@ -34,7 +34,7 @@
     $onw['rask'] = 0;
     $onw['cash'] = 0;
     $onw['kaspi'] = 0;
-    $staff = db::query("select * from user_staff where positions_id = 6 and company_id = '$branch'");
+    $staff = db::query("select * from user_staff where positions_id = 6 and company_id = '$company'");
 
 
 	// site setting
@@ -51,8 +51,8 @@
                 <? if (!$user_right['branch_id']): ?>
                     <div class="uc_uin_other">
                         <select name="status" class="on_sort_branch" data-order-id="<?=$buy_d['id']?>" >
-                            <option data-id="" value="" data-val="1" <?=($branch == 1?'selected':'')?>>Банзай</option>
-                            <option data-id="" value="" data-val="2" <?=($branch == 2?'selected':'')?>>Мастер</option>
+                            <option data-id="" value="" data-val="1" <?=($company == 1?'selected':'')?>>Банзай</option>
+                            <option data-id="" value="" data-val="2" <?=($company == 2?'selected':'')?>>Мастер</option>
                         </select>
                     </div>
                 <? endif ?>
