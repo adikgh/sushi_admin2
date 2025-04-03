@@ -5,13 +5,13 @@
 
 
 
-    $cashbox = db::query("select * from report_1 where paid = 0 and branch_id = '$branch' order by id desc limit 1");
+    $cashbox = db::query("select * from report_1 where paid = 0 and company_id = '$company' order by id desc limit 1");
 	if (mysqli_num_rows($cashbox)) {
 		$cashbox_d = mysqli_fetch_assoc($cashbox);
 		$cashbox_id = $cashbox_d['id'];
 	} else {
 		$cashbox_id = (mysqli_fetch_assoc(db::query("SELECT * FROM `report_1` order by id desc")))['id'] + 1;
-		$ins = db::query("INSERT INTO `report_1`(`id`, `user_id`, `branch_id`) VALUES ('$cashbox_id', '$user_id', '$branch')");
+		$ins = db::query("INSERT INTO `report_1`(`id`, `user_id`, `company_id`) VALUES ('$cashbox_id', '$user_id', '$company')");
 	}
 	$cashboxp = db::query("select * from report_сourier where report_id = '$cashbox_id' order by ins_dt asc");
     
@@ -48,9 +48,9 @@
 
         <div class="">
             <!-- <div class="uc_ui uc_ui69">
-                <? if (!$user_right['branch_id']): ?>
+                <? if (!$user_right['company_id']): ?>
                     <div class="uc_uin_other">
-                        <select name="status" class="on_sort_branch" data-order-id="<?=$buy_d['id']?>" >
+                        <select name="status" class="on_sort_company" data-order-id="<?=$buy_d['id']?>" >
                             <option data-id="" value="" data-val="1" <?=($company == 1?'selected':'')?>>Банзай</option>
                             <option data-id="" value="" data-val="2" <?=($company == 2?'selected':'')?>>Мастер</option>
                         </select>
@@ -83,7 +83,7 @@
                         <? while ($staff_d = mysqli_fetch_assoc($staff)): ?>
                             <? $staff_user_d = fun::user($staff_d['user_id']); ?>
                             <? $staff_id = $staff_d['user_id']; ?>
-                            <? $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and сourier_id  = '$staff_id' and branch_id = '$branch' and order_status in (1, 2, 3, 4) order by number desc"); ?>
+                            <? $orders = db::query("select * from retail_orders where ins_dt BETWEEN '$start_cdate' and '$end_cdate' and сourier_id  = '$staff_id' and company_id = '$company' and order_status in (1, 2, 3, 4) order by number desc"); ?>
                             <? $report_сourier_d = fun::report_сourier($cashbox_id, $staff_id); ?>
 
                             <?
