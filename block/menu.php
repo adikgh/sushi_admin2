@@ -34,10 +34,10 @@
 							<div class="umenu_cin"><i class="fal fa-users"></i></div>
 							<div class="umenu_cih">Жұмысшылар</div>
 						</a> -->
-						<a class="umenu_ci <?=($menu_name=='report'?'menu_ci_act':'')?>" href="/report/" data-title="Отчет курер">
+						<!-- <a class="umenu_ci <?=($menu_name=='report'?'menu_ci_act':'')?>" href="/report/" data-title="Отчет курер">
 							<div class="umenu_cin"><i class="fal fa-users"></i></div>
 							<div class="umenu_cih">Жұмысшылар</div>
-						</a>
+						</a> -->
 					<? endif ?>
 				</div>
 				<!-- <div class="umenu_c">
