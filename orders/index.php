@@ -195,7 +195,7 @@
 							<option data-id="" value="">Барлығы</option>
 							<option data-id="soboi" <?=(@$_GET['staff'] == 'soboi'?'selected':'')?> value="">Собой</option>
 							<option data-id="off" <?=(@$_GET['staff'] == 'off'?'selected':'')?> value="">Таңдалмаған</option>
-							<? $staff = db::query("select * from user_staff where positions_id = 6"); ?>
+							<? $staff = db::query("select * from user_staff where positions_id = 6 and company_id = '$company'"); ?>
 							<? while ($staff_d = mysqli_fetch_assoc($staff)): ?>
 								<? $staff_user_d = fun::user($staff_d['user_id']); ?>
 								<option data-id="<?=$staff_d['user_id']?>" <?=(@$_GET['staff'] == $staff_d['user_id']?'selected':'')?> value=""><?=$staff_user_d['name']?></option>
