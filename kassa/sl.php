@@ -102,6 +102,11 @@
 							<? endwhile ?>
 						</select>
 					</div>
+				</div>
+			</div>
+            <br><br>
+            <div class="">
+				<div class="uc_ui uc_ui69">
 					<div class="uc_uin_other">Жалпы: <?=$allorder['total']?> тг</div>
 					<div class="uc_uin_other">QR: <?=$allorder['pay_qr']?> тг</div>
 					<div class="uc_uin_other">Нал: <?=$allorder['pay_cash']?> тг</div>
