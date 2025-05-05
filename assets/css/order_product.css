@@ -346,9 +346,9 @@
 /*  */
 .uc_uin_other{
 	position: relative;
-	width: 120px;
-	min-width: 120px;
-	padding-right: 15px;
+	width: 200px;
+	min-width: 200px;
+	/* padding-right: 15px; */
 	font-size: 14px;
 }
 @media (max-width: 500px) {
