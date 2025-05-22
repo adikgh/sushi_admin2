@@ -53,8 +53,8 @@
                                         <div class="uc_ui_name fr_phone"><?=$cashboxp_d['phone']?></div>
                                     </div>
                                 </div>
-                                <div class="uc_uin_other "><?=$cashboxp_d['paid']?></div>
-                                <div class="uc_uin_other "><?=$cashboxp_d['total']?></div>
+                                <div class="uc_uin_other "><?=$cashboxp_d['paid']?> шт</div>
+                                <div class="uc_uin_other fr_price"><?=$cashboxp_d['total']?> </div>
                                 <div class="uc_uin_other"><?=$cashboxp_d['address']?></div>
                             </div>
                         </div>
