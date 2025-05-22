@@ -8,12 +8,11 @@
 	// $start_cdate = date('Y-m-d 06:00:00', strtotime("01.01.2025"));
 	// $end_cdate = date('Y-m-d 06:00:00', strtotime("20.03.2025"));
 
-   	if (@$_GET['time']) {
-	   $time_sort = $_GET['time'];
-	   $start_cdate = date('Y-m-d 06:00:00', strtotime("$date $time_sort day"));
-	   $end_cdate = date('Y-m-d 06:00:00', strtotime("$start_cdate +1 day"));
-   	}
-
+    if (@$_GET['time']) {
+		$time_sort = $_GET['time'];
+		$start_cdate = date('Y-m-d 06:00:00', strtotime("$time_sort"));
+		$end_cdate = date('Y-m-d 06:00:00', strtotime("$start_cdate +1 day"));
+	}
 
 
     // 
@@ -26,7 +25,7 @@
   
     // 
 	// $cashboxp = db::query("select * from product_item");
-	$cashboxp = db::query("select * from product_comp");
+	$cashboxp = db::query("select * from product_comp where company_id = '$company'");
     $number = 0;
 
 
@@ -43,16 +42,11 @@
 
 		<div class="">
 			<div class="uc_ui uc_ui69">
-				<div class="uc_uin_other">
-					<select name="status" class="on_sort_time" data-order-id="<?=$buy_d['id']?>" >
-						<option data-id="" value="" data-val="0" <?=(@$time_sort == 0?'selected':'')?>>Бүгін (<?=date('d', strtotime("$date"))?>)</option>
-						<option data-id="" value="" data-val="-1" <?=(@$time_sort == -1?'selected':'')?>>Кеше (<?=date('d', strtotime("$date -1 day"))?>)</option>
-						<option data-id="" value="" data-val="-2" <?=(@$time_sort == -2?'selected':'')?>>Алдыңғы күні (<?=date('d', strtotime("$date -2 day"))?>)</option>
-						<option data-id="" value="" data-val="-3" <?=(@$time_sort == -3?'selected':'')?>>Алдыңғы күні (<?=date('d', strtotime("$date -3 day"))?>)</option>
-						<option data-id="" value="" data-val="-4" <?=(@$time_sort == -4?'selected':'')?>>Алдыңғы күні (<?=date('d', strtotime("$date -4 day"))?>)</option>
-						<option data-id="" value="" data-val="-5" <?=(@$time_sort == -5?'selected':'')?>>Алдыңғы күні (<?=date('d', strtotime("$date -5 day"))?>)</option>
-					</select>
-				</div>
+                <div class="uc_uin_other">
+                    <div class="form_im">
+                        <input class="form_dt on_sort_time" type="date" name="" id="" value="<?=date('Y-m-d', strtotime("$start_cdate"))?>">
+                    </div>
+                </div>
 			</div>
 		</div>
 

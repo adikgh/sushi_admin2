@@ -1,7 +1,5 @@
 <?
 
-
-
     // setting
     $ver = 2.0001;
 
@@ -19,17 +17,15 @@
     $js = [];
     $code = rand(1000, 9999);
 
-
     // 
 	if (isset($_SESSION['ubd_menu']) == false) $_SESSION['ubd_menu'] = false;
-
 
     // lang
     $lang = 'ru';
     if (isset($_GET['lang'])) if ($_GET['lang'] == 'kz' || $_GET['lang'] == 'ru') $_SESSION['lang'] = $_GET['lang'];
     if (isset($_SESSION['lang'])) $lang = $_SESSION['lang'];
 
-
+    // 
     $view_pr = null;
     if (isset($_GET['view_pr'])) $_SESSION['view_pr'] = $_GET['view_pr'];
     if (isset($_SESSION['view_pr']) && $_SESSION['view_pr'] == 'list') $view_pr = 2; else $view_pr = null;
