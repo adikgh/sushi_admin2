@@ -38,6 +38,14 @@
 
 
 
+	// ubd_menu
+	if(isset($_GET['ubd_menu'])) {
+		if ($_SESSION['ubd_menu'] == false) $_SESSION['ubd_menu'] = true; else $_SESSION['ubd_menu'] = false;
+		exit();
+	}
+
+
+
 
 
 

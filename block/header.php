@@ -10,4 +10,4 @@
 	<? include "menu.php"; ?>
 
 	<!-- body start -->
-	<div class="app">
+	<div class="app <?=(@$_SESSION['ubd_menu'] == true?'app2':'')?>">

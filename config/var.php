@@ -3,7 +3,7 @@
 
 
     // setting
-    $ver = 1.0019;
+    $ver = 2.0001;
 
     // 
     $site_set = [
@@ -19,6 +19,9 @@
     $js = [];
     $code = rand(1000, 9999);
 
+
+    // 
+	if (isset($_SESSION['ubd_menu']) == false) $_SESSION['ubd_menu'] = false;
 
 
     // lang

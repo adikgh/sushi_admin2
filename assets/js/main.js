@@ -20,6 +20,22 @@ $(document).ready(function() {
 	})
 
 
+	// 
+	$('.ub1_lmq').on('click', function() {
+		$('.ub1_l').toggleClass('ub1_ms');
+		$('.app').toggleClass('app2');
+		$.ajax({
+			url: "/get.php?ubd_menu",
+			type: "POST",
+			dataType: "html",
+			data: ({}),
+			success: function(data){},
+			beforeSend: function(){},
+			error: function(data){console.log(data)}
+		})
+	})
+
+
 
 
 	// 

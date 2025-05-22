@@ -1,10 +1,11 @@
 <? if ($site_set['menu']): ?>
 
-	<div class="ub1_l ">
+	<div class="ub1_l <?=(@$_SESSION['ubd_menu'] == true?'ub1_ms':'')?>">
 		<div class="ub1_lc ">
 			<div class="ub1_lm ">
+				<div class="ub1_lm_logo">ABDIS</div>
 				<div class="ub1_lmq">
-					<div class="ub1_lmqc"><i class="fal fa-bars"></i></div>
+					<div class="ub1_lmqc"><i class="far fa-angle-right"></i></div>
 				</div>
 				<div class="umenu_c">
 					<? if ($user_right['positions_id'] == 3): ?>
@@ -13,10 +14,10 @@
 							<div class="umenu_cih">Касса</div>
 						</a>
 					<? else: ?>
-						<!-- <div class="umenu_co">Меню</div> -->
-						<a class="umenu_ci <?=($menu_name=='order_product'?'menu_ci_act':'')?>" href="/dashboard/order_product.php" data-title="Басты">
+						<div class="umenu_co">Меню</div>
+						<a class="umenu_ci <?=($menu_name=='order_product'?'menu_ci_act':'')?>" href="/dashboard/order_product.php" data-title="Көрсеткіштер">
 							<div class="umenu_cin"><i class="fal fa-chart-line"></i></div>
-							<div class="umenu_cih">Басты</div>
+							<div class="umenu_cih">Көрсеткіштер</div>
 						</a>
 						<a class="umenu_ci <?=($menu_name=='orders'?'menu_ci_act':'')?>" href="/orders/" data-title="Тапсырыстар">
 							<div class="umenu_cin"><i class="fal fa-list-ol"></i></div>
@@ -26,18 +27,18 @@
 							<div class="umenu_cin"><i class="fal fa-cash-register"></i></div>
 							<div class="umenu_cih">Касса</div>
 						</a>
+						<a class="umenu_ci <?=($menu_name=='report'?'menu_ci_act':'')?>" href="/report/" data-title="Отчет курер">
+							<div class="umenu_cin"><i class="fal fa-car"></i></div>
+							<div class="umenu_cih">Отчет курер</div>
+						</a>
 						<a class="umenu_ci <?=($menu_name=='products'?'menu_ci_act':'')?>" href="/products/" data-title="Тауар">
 							<div class="umenu_cin"><i class="fal fa-box-full"></i></div>
 							<div class="umenu_cih">Тауар</div>
 						</a>
-						<!-- <a class="umenu_ci <?=($menu_name=='users'?'menu_ci_act':'')?>" href="/users/" data-title="Жұмысшылар">
+						<a class="umenu_ci <?=($menu_name=='users'?'menu_ci_act':'')?>" href="/users/" data-title="Клиенттер">
 							<div class="umenu_cin"><i class="fal fa-users"></i></div>
-							<div class="umenu_cih">Жұмысшылар</div>
-						</a> -->
-						<!-- <a class="umenu_ci <?=($menu_name=='report'?'menu_ci_act':'')?>" href="/report/" data-title="Отчет курер">
-							<div class="umenu_cin"><i class="fal fa-users"></i></div>
-							<div class="umenu_cih">Жұмысшылар</div>
-						</a> -->
+							<div class="umenu_cih">Клиенттер</div>
+						</a>
 					<? endif ?>
 				</div>
 				<!-- <div class="umenu_c">

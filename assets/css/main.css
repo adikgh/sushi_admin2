@@ -804,15 +804,18 @@
 .app{
 	padding-left: 74px;
 	padding-bottom: 40px;
+	transition: .3s;
+}
+.app2{
+	padding-left: 240px;
 }
 @media (max-width: 500px) {
-	.app{
+	.app, app2{
 		padding-left: 0;
 		padding-top: 15px;
 		padding-bottom: 124px;
 	}
 }
-
 
 
 
@@ -984,7 +987,13 @@
 	height: 100vh;
 	transition: .3s;
 }
+.ub1_ms{
+	width: 240px;
+}
 @media(max-width:500px){.ub1_l{display:none}}
+
+
+
 
 .ub1_lc{
 	position: relative;
@@ -995,29 +1004,66 @@
 	align-items: center;
 	justify-content: space-between;
 	background: var(--wh);
+	transition: .3s;
 	border-right: 1px solid var(--gr3);
 }
+.ub1_ms .ub1_lc{
+	width: 240px;
+}
+
+
 .ub1_lm{
 	position: relative;
 	width: 100%;
 }
-.ub1_lmq{
+
+.ub1_lm_logo{
 	position: relative;
 	width: 100%;
-	padding-top: 15px;
+	font-size: 11px;
+	text-align: center;
+	padding-top: 25px;
+	font-weight: 600;
+}
+.ub1_ms .ub1_lm_logo{
+	font-size: 14px;
+}
+
+
+.ub1_lmq{
+	/* position: relative;
+	width: 100%; */
+	/* padding-top: 15px; */
 	display: flex;
 	justify-content: center;
 	cursor: pointer;
+
+	position: absolute;
+	right: -17px;
+	top: 15px;
+	transition: .3s;
+	opacity: 0;
 }
+.ub1_l:hover .ub1_lmq{
+	opacity: 1;
+}
+
 .ub1_lmqc{
 	position: relative;
-	width: 44px;
-	height: 44px;
+	width: 34px;
+	height: 34px;
+	background: var(--gr);
+	border-radius: 50%;
 	font-size: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: .3s;
 }
+.ub1_ms .ub1_lmqc{
+	transform: rotate(180deg);
+}
+
 
 .umenu_c{
 	position: relative;
@@ -1028,6 +1074,10 @@
 	align-items: center;
 	flex-direction: column;
 }
+.ub1_ms .umenu_c{
+	padding: 0 15px;
+}
+
 
 .umenu_co{
 	position: relative;
@@ -1037,17 +1087,14 @@
 	padding-left: 18px;
 	display: none;
 }
-.ub1_ms .umenu_co{}
 
 .umenu_ci{
 	position: relative;	
 	width: 100%;
 	height: 44px;
-	padding: 0 16px;
 	margin-bottom: 5px;
 	border-radius: 50%;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	transition: .3s;
 	color: var(--bl);
@@ -1056,7 +1103,13 @@
 	width: 44px;
 	height: 44px;
 }
-.ub1_ms .umenu_ci{}
+.ub1_ms .umenu_ci{
+	justify-content: space-between;
+	width: 100%;
+	border-radius: 10px;
+	padding: 0 16px;
+	/* border: 1px solid var(--cl2); */
+}
 .umenu_ci:hover{background:var(--cl1)}
 .menu_ci_act, .menu_ci_act:hover{
 	background: var(--cl);
@@ -1075,8 +1128,11 @@
 	display: flex;
 	align-items: center;
 }
-.menu_act .ub1_lt[data-title]::after{display:none}
+.menu_act .ub1_lt[data-title]::after, 
+.ub1_ms .ub1_lt[data-title]::after, 
+.ub1_ms .umenu_ci[data-title]::after{display:none}
 @media(max-width:1024px){.umenu_ci[data-title]::after, .ub1_lt[data-title]::after{display:none}}
+
 
 .umenu_cin{
 	position: relative;
@@ -1096,10 +1152,12 @@
 	line-height: 20px;
 	overflow: hidden;
 	white-space: nowrap;
-   text-overflow: ellipsis;
+   	text-overflow: ellipsis;
 	display: none;
 }
-.ub1_ms .umenu_cih{}
+.ub1_ms .umenu_cih{
+	display: block;
+}
 
 .umenu_cih span{
 	position: relative;
@@ -1130,7 +1188,9 @@
 	transition: .3s;
 	padding: 0 0 0 14px;
 }
-.ub1_ms .ub1_lx{}
+.ub1_ms .ub1_lx{
+	width: 240px;
+}
 
 .ub1_lt{
 	position: relative;
@@ -1140,8 +1200,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: .3s;
 	cursor: pointer;
 }
+.ub1_ms .ub1_lt{
+	width: 100%;
+}
+
 .ub1_lti{
 	position: relative;
 	width: 44px;
@@ -1159,24 +1224,25 @@
 }
 .ub1_ltf{
 	position: relative;
-	width: calc(100% - 44px - 34px - 30px);
-	margin: 0 15px;
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 24px;
 	height: 24px;
 	overflow: hidden;
 	white-space: nowrap;
-   text-overflow: ellipsis;
+   	text-overflow: ellipsis;
 	transition: .3s;
-	opacity: 1;
-	overflow: visible;
 	opacity: 0;
 	overflow: hidden;
 	width: 0;
 	margin: 0;
 }
-.ub1_ms .ub1_ltf{}
+.ub1_ms .ub1_ltf{
+	opacity: 1;
+	width: calc(100% - 44px - 34px - 30px);
+	overflow: visible;
+	margin: 0 15px;
+}
 
 .ub1_ltic{
 	position: relative;
@@ -1205,8 +1271,10 @@
 	left: 94px;
 	bottom: -35px;
 }
+.ub1_ms .ub1_lx .menu_c{
+	left: 255px;
+}
 .menu_act .ub1_lx .menu_c{
-	top: auto;
 	bottom: 15px;
 }
 
