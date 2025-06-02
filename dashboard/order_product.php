@@ -16,6 +16,12 @@
     // if (@$_GET['catalog']) {
 	// 	$sort_catalog = $_GET['catalog'];
 	// }
+
+
+    // if (@$_GET['company']) {
+	// 	$sort_company = $_GET['company'];
+    //     $_SESSION['company'] = $_GET['company'];
+	// }
     
     // 
     $number = 0;
@@ -68,6 +74,18 @@
 		<div class="">
 
             <div class="uc_ui uc_ui69">
+
+                <? if ($user_right['positions_id'] == 1): ?>
+                    <div class="uc_uin_other">
+                        <select name="status" class="on_sort_company" >
+                            <!-- <option data-id="" value="" <?=(!@$company?'selected':'')?>>Все</option> -->
+                            <? $catl = db::query("select * from company "); ?>
+                            <? while ($catl_d = mysqli_fetch_assoc($catl)): ?>
+                                <option data-id="" value="<?=$catl_d['id']?>" <?=(@$company == $catl_d['id']?'selected':'')?>><?=$catl_d['name']?></option>
+                            <? endwhile ?>
+                        </select>
+                    </div>
+                <? endif ?>
             
                 <div class="uc_uin_other">
                     <div class="form_im">

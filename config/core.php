@@ -63,8 +63,8 @@
    $company = 1;
    if (@$user_right['company_id']) $company = $user_right['company_id'];
    else {
-      if (isset($_GET['company'])) if ($_GET['company'] == 1 || $_GET['company'] == 2) $_SESSION['company'] = $_GET['company'];
-      if (isset($_SESSION['company'])) $branch = $_SESSION['company'];
+      if (isset($_GET['company'])) $_SESSION['company'] = $_GET['company'];
+      if (isset($_SESSION['company'])) $company = $_SESSION['company'];
    }
 
    // branch
